@@ -30,6 +30,8 @@ pipeline{
         stage('Containerisation'){
             steps{
                 sh '''
+                docker stop c23 || true
+                docker rm c23 || true
                 docker run -it -d --name c23 -p 9008:8080 suraj23j/project-2
                 '''
             }
